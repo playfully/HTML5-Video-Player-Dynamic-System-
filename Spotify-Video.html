@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Spotify HTML5 Video Player Example Code</title>
+	<link rel="stylesheet" href="css/video-js.css" type="text/css" media="screen" title="Video Chooser" />
+	<link rel="stylesheet" href="css/styles.css" type="text/css" media="screen" /> 
+</head>
+<body>
+<!-- debug output goes here, if debug=on -->
+<div id="statusBox"></div>
+
+<!-- download links -->
+<div id="downloads"></div>
+
+<!-- video player -->
+<div class="centered">
+	<div id="mediaPlayer" class="video-js-box">
+		<video id="videos" class="video-js" width="650" height="300" controls="controls" preload="auto" autoplay="autoplay" poster="http://centralconnect.me/Spotify-Video/Spotify-Poster.jpg"></video>
+	</div>
+</div>
+		
+
+<!-- Credit where credit is due -->
+
+<p>The Original concept <a href="http://videojs.com">by VideoJS</a> <br />Extended By Jim @ Spotify</p>
+ <script src="js/video.js"></script>
+<script src="js/swfobject.js"></script>
+<script src="js/spotVid.js"></script>
+<script>
+	VideoJS.setupAllWhenReady();
+	VideoJS.DOMReady(function(){
+		spotVid.queryString.parse();
+		spotVid.source.set(spotVid.queryString.params.vType);
+
+		if (spotVid.queryString.params.dl === 'on') {
+			spotVid.source.printDownloads();
+		}
+	
+		if (spotVid.queryString.params.debug === 'on') {
+			spotVid.debug.printSettings();
+		}
+		
+		if(spotVid.queryString.params.flash === 'true') {
+			spotVid.flashFallback();	
+		}
+
+	});
+</script>
+</body>
+</html>
