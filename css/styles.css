@@ -1,5 +1,7 @@
 body {
-	background: url('http://centralconnect.me/Spotify-Video/Spotify-Background.jpg') no-repeat;
+	background: #66a219; /* fallback for non-supporting browsers */
+    background-image: -webkit-radial-gradient(center center, circle cover, #7ebb1e, #66a219);  
+	
 }
 	
 .centered {
